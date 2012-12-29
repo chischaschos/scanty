@@ -1,11 +1,12 @@
 source :gemcutter
 
-gem 'sequel'
-gem "maruku", "~> 0.6.1"
-gem "syntax", "~> 1.0.0"
-gem 'sinatra'
-gem 'sqlite3'
+gem 'haml'
 gem 'debugger'
+gem "maruku", "~> 0.6.1"
+gem 'sequel'
+gem 'sinatra'
+gem "syntax", "~> 1.0.0"
+gem 'sqlite3'
 
 group :test do
   gem 'capybara-webkit'
