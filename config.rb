@@ -28,10 +28,10 @@ configure :development do
     :title => "Emmanuel Delgado's blog",
     :author => 'Emmanuel Delgado',
     :url_base => 'http://localhost/',
-    :admin_password => 123,
-    :admin_cookie_key => 123,
-    :admin_cookie_value => 123,
-    :disqus_shortname => 123
+    :admin_password => '123',
+    :admin_cookie_key => '123',
+    :admin_cookie_value => '123',
+    :disqus_shortname => '123'
   )
 end
 
@@ -42,9 +42,9 @@ configure :test do
     :title => "Emmanuel Delgado's blog",
     :author => 'Emmanuel Delgado',
     :url_base => 'http://localhost/',
-    :admin_password => 123,
-    :admin_cookie_key => 123,
-    :admin_cookie_value => 123,
-    :disqus_shortname => 123
+    :admin_password => '123',
+    :admin_cookie_key => '123',
+    :admin_cookie_value => '123',
+    :disqus_shortname => '123'
   )
 end

@@ -9,5 +9,8 @@ gem 'debugger'
 
 group :test do
   gem 'capybara-webkit'
+
+  # In order to save_and_open_page
+  gem 'launchy'
   gem 'rspec'
 end
