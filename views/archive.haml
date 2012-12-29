@@ -1,0 +1,7 @@
+%h1 Archive
+%table.archive
+  - posts.each do |post|
+    %tr
+      %td.date= post.created_at.strftime("%b %d %Y")
+      %td.title
+        %a{:href => post.url}= post.title

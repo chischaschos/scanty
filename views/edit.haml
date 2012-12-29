@@ -1,0 +1,11 @@
+%form{:action => url, :method => "post", :name => "edit"}
+  .postzoom
+    %h2.title
+      %input{:name => "title", :type => "text", :value => post.title}/
+    %p.meta
+      %input{:name => "tags", :type => "text", :value => post.tags}/
+    %p.meta= post.created_at
+    .entry
+      %textarea{:name => "body"}= post.body
+    .edit
+      %input{:type => "submit", :value => "Save"}/

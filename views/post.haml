@@ -1,0 +1,18 @@
+.postzoom
+  %h2.title= post.title
+  %p.meta
+    %small= post.linked_tags
+  %p.meta= post.created_at
+  .entry
+    = post.body_html
+  - if admin?
+    .edit
+      %a{:href => "#{post.url}edit"} edit
+- if Blog.disqus_shortname
+  #disqus_thread
+  %script{:src => "http://disqus.com/forums/#{Blog.disqus_shortname}/embed.js", :type => "text/javascript"}
+  %noscript
+    %a{:href => "http://#{Blog.disqus_shortname}.disqus.com/?url=ref"} View the discussion thread.
+  %a.dsq-brlink{:href => "http://disqus.com"}
+    blog comments powered by
+    %span.logo-disqus Disqus
