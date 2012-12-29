@@ -7,15 +7,20 @@ require 'sequel'
 configure do
 	Sequel.connect(ENV['DATABASE_URL'] || 'sqlite://blog.db')
 
+  raise "BLOG_PASSWD not set" unless ENV['BLOG_PASSWD']
+  raise "COOKIE_KEY not set" unless ENV['COOKIE_KEY']
+  raise "COOKIE_VALUE not set" unless ENV['COOKIE_VALUE']
+  raise "DISQUS_SHORTNAME not set" unless ENV['DISQUS_SHORTNAME']
+
 	require 'ostruct'
 	Blog = OpenStruct.new(
-		:title => 'a scanty blog',
-		:author => 'John Doe',
-		:url_base => 'http://localhost:4567/',
-		:admin_password => 'changeme',
-		:admin_cookie_key => 'scanty_admin',
-		:admin_cookie_value => '51d6d976913ace58',
-		:disqus_shortname => nil
+		:title => "Emmanuel Delgado's blog",
+		:author => 'Emmanuel Delgado',
+		:url_base => 'http://localhost/',
+		:admin_password => ENV['BLOG_PASSWD'],
+		:admin_cookie_key => ENV['COOKIE_KEY'],
+		:admin_cookie_value => ENV['COOKIE_VALUE'],
+		:disqus_shortname => ENV['DISQUS_SHORTNAME']
 	)
 end
 
@@ -89,7 +94,7 @@ get '/auth' do
 end
 
 post '/auth' do
-	set_cookie(Blog.admin_cookie_key, Blog.admin_cookie_value) if params[:password] == Blog.admin_password
+  response.set_cookie(Blog.admin_cookie_key, Blog.admin_cookie_value) if params[:password] == Blog.admin_password
 	redirect '/'
 end
 
