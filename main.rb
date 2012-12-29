@@ -3,25 +3,7 @@ require 'bundler'
 
 Bundler.require :default
 
-configure do
-  DB = Sequel.connect(ENV['DATABASE_URL'] || 'sqlite://blog.db')
-
-  raise "BLOG_PASSWD not set" unless ENV['BLOG_PASSWD']
-  raise "COOKIE_KEY not set" unless ENV['COOKIE_KEY']
-  raise "COOKIE_VALUE not set" unless ENV['COOKIE_VALUE']
-  raise "DISQUS_SHORTNAME not set" unless ENV['DISQUS_SHORTNAME']
-
-  require 'ostruct'
-  Blog = OpenStruct.new(
-    :title => "Emmanuel Delgado's blog",
-    :author => 'Emmanuel Delgado',
-    :url_base => 'http://localhost/',
-    :admin_password => ENV['BLOG_PASSWD'],
-    :admin_cookie_key => ENV['COOKIE_KEY'],
-    :admin_cookie_value => ENV['COOKIE_VALUE'],
-    :disqus_shortname => ENV['DISQUS_SHORTNAME']
-  )
-end
+require './config'
 
 error do
   e = request.env['sinatra.error']
@@ -39,7 +21,7 @@ helpers do
   end
 
   def auth
-    stop [ 401, 'Not authorized' ] unless admin?
+    halt [ 401, 'Not authorized' ] unless admin?
   end
 end
 

@@ -3,14 +3,9 @@ require 'bundler'
 
 Bundler.require :default, :test
 
-DB = Sequel.sqlite
+ENV['RACK_ENV'] = 'test'
+
+require './config'
 
 $LOAD_PATH.unshift(File.dirname(__FILE__) + '/../lib')
 require 'post'
-
-require 'ostruct'
-Blog = OpenStruct.new(
-  :title => 'My blog',
-  :author => 'Anonymous Coward',
-  :url_base => 'http://blog.example.com/'
-)
