@@ -1,4 +1,4 @@
-require 'main'
+require './main'
 
 set :run, false
 set :env, ENV['RACK_ENV'] || 'development'
