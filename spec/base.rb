@@ -1,11 +1,14 @@
 require 'rubygems'
 require 'bundler'
 
-Bundler.require :default, :test
+$LOAD_PATH.unshift File.dirname(__FILE__) + '/../lib'
 
 ENV['RACK_ENV'] = 'test'
 
-require './config'
+require './main'
+Bundler.require :default, :test
 
-$LOAD_PATH.unshift(File.dirname(__FILE__) + '/../lib')
-require 'post'
+require 'capybara/rspec'
+
+Capybara.javascript_driver = :webkit
+Capybara.app = Sinatra::Application.new

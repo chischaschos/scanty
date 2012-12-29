@@ -8,5 +8,6 @@ gem 'sqlite3'
 gem 'debugger'
 
 group :test do
+  gem 'capybara-webkit'
   gem 'rspec'
 end
