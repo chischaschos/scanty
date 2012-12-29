@@ -108,4 +108,3 @@ post '/past/:year/:month/:day/:slug/' do
   post.save
   redirect post.url
 end
-

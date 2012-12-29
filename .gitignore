@@ -3,3 +3,4 @@
 *.swp
 blog.db
 capybara*
+coverage/

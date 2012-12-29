@@ -9,6 +9,7 @@ gem 'debugger'
 
 group :test do
   gem 'capybara-webkit'
+  gem 'simplecov', require: false
 
   # In order to save_and_open_page
   gem 'launchy'
