@@ -4,6 +4,7 @@
     %meta{:content => "text/html; charset=utf-8", "http-equiv" => "content-type"}/
     %title= @title || Blog.title
     %link{:href => "/main.css", :rel => "stylesheet", :type => "text/css"}/
+    %link{:href => "/feed", :rel => "alternate", :title => "Primary Feed", :type => "application/atom+xml"}/
     :javascript
       var _gaq = _gaq || [];
       _gaq.push(['_setAccount', 'UA-21486770-1']);
@@ -17,15 +18,18 @@
 
   %body
     #header
-      #logo2
+      #logo
         %h1
           %a{:href => "/"}= Blog.title
         %p
           by #{Blog.author}
+
     #content
       = yield
+
     %a{:href => "https://github.com/chischaschos/scanty"}
       %img{:alt => "Fork me on GitHub", :src => "/images/github-ribbon.png", :style => "position: absolute; top: 0; right: 0; border: 0;"}/
+
     #footer
       %p#legal
         Content by #{Blog.author} |

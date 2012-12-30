@@ -32,7 +32,7 @@ layout 'layout'
 
 get '/' do
   posts = Post.reverse_order(:created_at).limit(10)
-  haml :index, :locals => { :posts => posts }, :layout => false
+  haml :index, :locals => { :posts => posts }
 end
 
 get '/past/:year/:month/:day/:slug/' do
