@@ -1,6 +1,6 @@
 require 'base'
 
-describe 'Posts management', type: 'acceptance', js: true do
+describe 'Posts management', type: :feature, js: true do
 
   it 'creates a new post with tags when authenticated' do
     visit '/'

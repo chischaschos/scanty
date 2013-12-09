@@ -15,7 +15,7 @@ Bundler.require :default, :test
 require 'capybara/rspec'
 
 Capybara.javascript_driver = :webkit
-Capybara.app = Sinatra::Application.new
+Capybara.app = Sinatra::Blogging::App
 
 
 RSpec.configure do |config|

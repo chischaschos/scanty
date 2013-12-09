@@ -16,6 +16,7 @@ group :development, :test do
 end
 
 group :test do
+  gem 'selenium-webdriver'
   gem 'capybara-webkit'
   gem 'simplecov', require: false
 
