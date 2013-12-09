@@ -1,9 +1,13 @@
-source :gemcutter
+source 'https://rubygems.org'
 
+gem 'compass'
+gem 'foundation'
 gem 'haml'
+gem 'rake'
 gem "maruku", "~> 0.6.1"
 gem 'sequel'
 gem 'sinatra'
+gem 'sinatra-assetpack', require: 'sinatra/assetpack'
 gem "syntax", "~> 1.0.0"
 gem 'sqlite3'
 

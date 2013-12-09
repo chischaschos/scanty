@@ -7,7 +7,7 @@
   %p.meta
     %small
       = post.linked_tags
-      - if Blog.disqus_shortname
+      - if settings.blog.disqus_shortname
         |
         %a{:href => "#{post.url}#disqus_thread"} comments
   .entry

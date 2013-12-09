@@ -21,8 +21,8 @@ Capybara.app = Sinatra::Application.new
 RSpec.configure do |config|
 
   config.after  do
-    DB.tables.each do |table|
-      DB[table].delete
+    Sinatra::Blogging::App.settings.db.tables.each do |table|
+      Sinatra::Blogging::App.settings.db[table].delete
     end
   end
 

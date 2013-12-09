@@ -2,8 +2,9 @@
 %html
   %head
     %meta{:content => "text/html; charset=utf-8", "http-equiv" => "content-type"}/
-    %title= @title || Blog.title
-    %link{:href => "/main.css", :rel => "stylesheet", :type => "text/css"}/
+    %title= @title || settings.blog.title
+    = css :application
+    = js :application
     %link{:href => "/feed", :rel => "alternate", :title => "Primary Feed", :type => "application/atom+xml"}/
     :javascript
       var _gaq = _gaq || [];
@@ -20,9 +21,9 @@
     #header
       #logo
         %h1
-          %a{:href => "/"}= Blog.title
+          %a{:href => "/"}= settings.blog.title
         %p
-          by #{Blog.author}
+          by #{settings.blog.author}
 
     #content
       = yield
@@ -32,6 +33,6 @@
 
     #footer
       %p#legal
-        Content by #{Blog.author} |
+        Content by #{settings.blog.author} |
         Design adapted from
         %a{:href => "http://www.freecsstemplates.org/preview/replenish"} Replenish
