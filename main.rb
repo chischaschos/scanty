@@ -4,7 +4,6 @@ require 'bundler'
 Bundler.require :default
 
 require_relative 'config'
-require_relative 'assets'
 require_relative 'helpers'
 require_relative 'routes'
 
@@ -13,9 +12,10 @@ module Sinatra
     class App < Sinatra::Base
 
       set :root, File.dirname(__FILE__)
+      set :run, false
+      set :env, ENV['RACK_ENV'] || 'development'
 
       register Sinatra::Blogging::Config
-      register Sinatra::Blogging::Assets
       helpers Sinatra::Blogging::Helpers
       register Sinatra::Blogging::Routes
 

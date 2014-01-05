@@ -1,18 +1,19 @@
 source 'https://rubygems.org'
 
-gem 'compass'
-gem 'foundation'
 gem 'haml'
 gem 'rake'
 gem "maruku", "~> 0.6.1"
+gem 'sass'
 gem 'sequel'
 gem 'sinatra'
-gem 'sinatra-assetpack', require: 'sinatra/assetpack'
+gem 'shotgun'
+gem "sprockets", "~> 2.10.1"
 gem "syntax", "~> 1.0.0"
 gem 'sqlite3'
+gem 'tilt'
 
 group :development, :test do
-  gem 'debugger'
+  gem 'pry'
 end
 
 group :test do

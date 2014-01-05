@@ -1,11 +1,11 @@
 !!!
 %html
   %head
-    %meta{:content => "text/html; charset=utf-8", "http-equiv" => "content-type"}/
+    %meta{content: "text/html; charset=utf-8", "http-equiv" => "content-type"}/
     %title= @title || settings.blog.title
-    = css :application
-    = js :application
-    %link{:href => "/feed", :rel => "alternate", :title => "Primary Feed", :type => "application/atom+xml"}/
+    %link{href: "/assets/css/application", rel: "stylesheet"}/
+    %link{href: "/feed", rel: "alternate", title: "Primary Feed", type: "application/atom+xml"}/
+    %script{src: "/assets/modernizr.js"}
     :javascript
       var _gaq = _gaq || [];
       _gaq.push(['_setAccount', 'UA-21486770-1']);
@@ -18,21 +18,14 @@
       })();
 
   %body
-    #header
-      #logo
+    .row
+      .small-12.colums
         %h1
-          %a{:href => "/"}= settings.blog.title
+          %a{href: "/"}= settings.blog.title
         %p
           by #{settings.blog.author}
 
-    #content
+
       = yield
 
-    %a{:href => "https://github.com/chischaschos/scanty"}
-      %img{:alt => "Fork me on GitHub", :src => "/images/github-ribbon.png", :style => "position: absolute; top: 0; right: 0; border: 0;"}/
-
-    #footer
-      %p#legal
-        Content by #{settings.blog.author} |
-        Design adapted from
-        %a{:href => "http://www.freecsstemplates.org/preview/replenish"} Replenish
+    %script{src: "/assets/js/application"}
