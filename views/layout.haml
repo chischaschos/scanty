@@ -21,11 +21,32 @@
     .row
       .small-12.colums
         %h1
-          %a{href: "/"}= settings.blog.title
-        %p
-          by #{settings.blog.author}
+          %a{href: "/"}
+            = settings.blog.title
+            %small by #{settings.blog.author}
 
+      .small-12.colums
+        %dl.sub-nav
+          %dd{class: "#{@section == :all ? 'active' : ''}"}
+            %a{href: "/"} All
 
-      = yield
+          %dd{class: "#{@section == :past ? 'active' : ''}"}
+            %a{href: "/past"} Archive
+
+          - if @tag
+            %dd{class: "#{@section == :tag ? 'active' : ''}"}
+              %a{href: "#"}= @title
+
+          - if admin?
+            %dd{class: "#{@section == :edit ? 'active' : ''}"}
+              %a{href: "/posts/new"} New post
+
+          - if @section == :auth
+            %dd.active
+              %a{href: "/auth"} Log In
+
+      .small-12.colums
+        = yield
+
 
     %script{src: "/assets/js/application"}

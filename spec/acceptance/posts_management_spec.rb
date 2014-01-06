@@ -15,7 +15,7 @@ describe 'Posts management', type: :feature, js: true do
     click_button 'Save'
     expect(page).to have_content('A test post')
     click_link 'tag1'
-    expect(page).to have_content('Posts tagged tag1')
+    expect(page).to have_content('Tagged: tag1')
   end
 
   it 'can not create posts when not authenticated' do

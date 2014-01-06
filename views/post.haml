@@ -1,10 +1,16 @@
-.postzoom
-  %h2.title= post.title
-  %p.meta
-    %small= post.linked_tags
-  %p.meta= post.created_at
-  .entry
+.post
+  %h2
+    %a{href: post.url}
+      %em
+        = post[:created_at].strftime '%Y-%m-%d'
+        \:
+      = post[:title]
+    %h5
+      Tags:
+      %em= post.linked_tags
+  %p
     = post.body_html
+
   - if admin?
     .edit
       %a{:href => "#{post.url}edit"} edit

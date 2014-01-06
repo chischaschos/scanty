@@ -9,20 +9,3 @@
     , then
     = succeed "." do
       %a{:href => "/posts/new"} create a post
-
-- else
-  #older_posts
-    %a{:href => "/past"} Archive
-
-- if admin?
-  #new_post
-    %a{:href => "/posts/new"}New post
-
-- if settings.blog.disqus_shortname
-  :javascript
-    (function () {
-        var s = document.createElement('script'); s.async = true;
-        s.type = 'text/javascript';
-        s.src = 'http://#{settings.blog.disqus_shortname}.disqus.com/count.js';
-        (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
-    }());
