@@ -18,6 +18,9 @@ customize its configuration.
 
 ## Priority fixes
 
+- Server static content fast
+- Serve all fast
+- Serve multiple requests fast
 - Generated markup styles
 - Decoupling post model business logic
 

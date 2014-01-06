@@ -19,7 +19,7 @@ module Sinatra
 
           app.set :db, Sequel.connect(ENV['DATABASE_URL'])
 
-          set :blog, OpenStruct.new(
+          app.set :blog, OpenStruct.new(
             title: TITLE,
             author: AUTHOR,
             url_base: 'http://emmanueldelgado.me',
