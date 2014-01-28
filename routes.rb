@@ -91,6 +91,11 @@ module Sinatra
             post.save
             redirect post.url
           end
+
+          get '/about' do
+            @section = :about
+            haml :about
+          end
         end
 
       end
