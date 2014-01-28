@@ -4,3 +4,4 @@
 blog.db
 capybara*
 coverage/
+.env
