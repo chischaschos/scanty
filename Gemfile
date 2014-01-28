@@ -10,10 +10,10 @@ gem 'shotgun'
 gem "sprockets", "~> 2.10.1"
 gem "syntax", "~> 1.0.0"
 gem 'sqlite3'
-gem 'tilt'
 
 group :development, :test do
-  gem 'pry'
+  gem 'pry-debugger'
+  gem 'yui-compressor'
 end
 
 group :test do

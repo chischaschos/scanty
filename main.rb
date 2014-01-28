@@ -6,14 +6,17 @@ Bundler.require :default
 require_relative 'config'
 require_relative 'helpers'
 require_relative 'routes'
+require_relative 'assets'
 
 module Sinatra
   module Blogging
     class App < Sinatra::Base
 
-      set :root, File.dirname(__FILE__)
+      set :root, File.realdirpath('.')
       set :run, false
       set :env, ENV['RACK_ENV'] || 'development'
+      set :sprockets, Sinatra::Blogging::Assets.environment(settings.root)
+      set :manifest, Sprockets::Manifest.new(settings.sprockets, './public/assets')
 
       register Sinatra::Blogging::Config
       helpers Sinatra::Blogging::Helpers

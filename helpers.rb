@@ -10,6 +10,14 @@ module Sinatra
         halt [ 401, 'Not authorized' ] unless admin?
       end
 
+      def asset_path file
+        if ENV['RACK_ENV'] == 'production'
+          "/assets/#{settings.manifest.assets[file]}"
+        else
+          "/assets/#{file}"
+        end
+      end
+
     end
   end
 end

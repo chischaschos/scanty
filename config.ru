@@ -1,12 +1,9 @@
 require './main'
 
-map '/assets' do
-  environment = Sprockets::Environment.new
-  environment.append_path 'bower_components/jquery'
-  environment.append_path 'bower_components/modernizr'
-  environment.append_path 'bower_components/foundation'
-  environment.append_path 'assets'
-  run environment
+unless ENV['RACK_ENV'] == 'production'
+  map '/assets' do
+    run Sinatra::Blogging::Assets.environment Sinatra::Blogging::App.root
+  end
 end
 
 map '/' do

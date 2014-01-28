@@ -3,9 +3,9 @@
   %head
     %meta{content: "text/html; charset=utf-8", "http-equiv" => "content-type"}/
     %title= @title || settings.blog.title
-    %link{href: "/assets/css/application", rel: "stylesheet"}/
+    %link{href: asset_path('application.css'), rel: "stylesheet"}/
     %link{href: "/feed", rel: "alternate", title: "Primary Feed", type: "application/atom+xml"}/
-    %script{src: "/assets/modernizr.js"}
+    %script{src: asset_path('modernizr.js')}
     :javascript
       var _gaq = _gaq || [];
       _gaq.push(['_setAccount', 'UA-21486770-1']);
@@ -49,4 +49,4 @@
         = yield
 
 
-    %script{src: "/assets/js/application"}
+    %script{src: asset_path('application.js')}
