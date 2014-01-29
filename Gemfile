@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 ruby '1.9.3'
 
 gem 'haml'
-gem "maruku", "~> 0.6.1"
+gem 'kramdown'
 gem 'newrelic_rpm'
 gem 'pg'
 gem 'rake'

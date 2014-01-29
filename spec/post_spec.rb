@@ -20,11 +20,14 @@ describe Post do
 
   it "produces html from the markdown body" do
     @post.body = "* Bullet"
-    @post.body_html.should == "<ul>\n<li>Bullet</li>\n</ul>"
+    @post.body_html.should == "<ul>\n  <li>Bullet</li>\n</ul>\n"
   end
 
-  it "syntax highlights code blocks" do
-    @post.to_html("<code>\none\ntwo\n</code>").should == "\n<code><pre><span class=\"ident\">one</span>\n<span class=\"ident\">two</span></pre></code>\n"
+  it "syntax highlights ruby blocks" do
+highlighted_code = <<DOC
+<div><div class=\"CodeRay\">\n  <div class=\"code\"><pre><span class=\"line-numbers\"><a href=\"#n1\" name=\"n1\">1</a></span>puts <span style=\"background-color:hsla(0,100%,50%,0.05)\"><span style=\"color:#710\">&quot;</span><span style=\"color:#D20\">hi</span><span style=\"color:#710\">&quot;</span></span>\n</pre></div>\n</div>\n</div>
+DOC
+    @post.to_html("~~~ruby\nputs \"hi\"\n~~~").should eq highlighted_code
   end
 
   it "makes the tags into links to the tag search" do

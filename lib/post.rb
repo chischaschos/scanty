@@ -1,6 +1,3 @@
-require 'maruku'
-require 'syntax/convertors/html'
-
 Sinatra::Blogging::App.settings.db.create_table? :posts do
   primary_key :id
   String :title
@@ -49,43 +46,7 @@ class Post < Sequel::Model
     title.downcase.gsub(/ /, '_').gsub(/[^a-z0-9_]/, '').squeeze('_')
   end
 
-  ########
-
   def to_html(markdown)
-    out = []
-    noncode = []
-    code_block = nil
-    markdown.split("\n").each do |line|
-      if !code_block and line.strip.downcase == '<code>'
-        out << Maruku.new(noncode.join("\n")).to_html
-        noncode = []
-        code_block = []
-      elsif code_block and line.strip.downcase == '</code>'
-        convertor = Syntax::Convertors::HTML.for_syntax "ruby"
-        highlighted = convertor.convert(code_block.join("\n"))
-        out << "<code>#{highlighted}</code>"
-        code_block = nil
-      elsif code_block
-        code_block << line
-      else
-        noncode << line
-      end
-    end
-    out << Maruku.new(noncode.join("\n")).to_html
-    out.join("\n")
-  end
-
-  def split_content(string)
-    parts = string.gsub(/\r/, '').split("\n\n")
-    show = []
-    hide = []
-    parts.each do |part|
-      if show.join.length < 100
-        show << part
-      else
-        hide << part
-      end
-    end
-    [ to_html(show.join("\n\n")), hide.size > 0 ]
+    Kramdown::Document.new(markdown).to_html
   end
 end
