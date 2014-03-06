@@ -1,6 +1,8 @@
 source 'https://rubygems.org'
 ruby '1.9.3'
 
+gem 'capistrano', '~> 3.1.0'
+gem 'capistrano-bundler', '~> 1.1.2'
 gem 'haml'
 gem 'kramdown'
 gem 'newrelic_rpm'
@@ -12,7 +14,7 @@ gem 'sinatra'
 gem 'shotgun'
 gem "sprockets", "~> 2.10.1"
 gem "syntax", "~> 1.0.0"
-gem 'unicorn'
+gem 'puma'
 
 group :development, :test do
   gem 'foreman'
