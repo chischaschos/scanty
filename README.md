@@ -35,3 +35,6 @@ customize its configuration.
 - Responsive layouts
 - Full JS app consuming API
 - Try to improve code so that codeclimate becomes happier [![Code Climate](https://codeclimate.com/badge.png)](https://codeclimate.com/github/chischaschos/scanty)
+
+## Provisioning
+Based on https://github.com/radar/ansible-rails-app
