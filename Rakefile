@@ -1,4 +1,5 @@
 require_relative 'main'
+require 'dotenv/tasks'
 require 'rake/sprocketstask'
 require 'yui/compressor'
 

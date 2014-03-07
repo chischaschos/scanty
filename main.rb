@@ -2,6 +2,7 @@ require 'rubygems'
 require 'bundler'
 
 Bundler.require :default
+Dotenv.load
 
 require_relative 'config'
 require_relative 'helpers'

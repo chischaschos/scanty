@@ -3,6 +3,7 @@ ruby '1.9.3'
 
 gem 'capistrano', '~> 3.1.0'
 gem 'capistrano-bundler', '~> 1.1.2'
+gem 'dotenv'
 gem 'haml'
 gem 'kramdown'
 gem 'newrelic_rpm'
