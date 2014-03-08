@@ -55,7 +55,7 @@
 - name: Create deployment user
   user: name=deploy comment="Application deployment user"
 
-#- authorized_key: user=deploy key='$FILE(~/.ssh/id_rsa.pub)'
+- authorized_key: user=deploy key="{{ lookup('file', deploy_public_key) }}"
 
 - name: Create deployment directory
   file: path={{deploy_directory}} owner=deploy group=deploy state=directory
@@ -74,6 +74,9 @@
 
 - name: Install database.yml
   template: src=database.yml.j2 dest={{deploy_directory}}/shared/config/database.yml force=yes mode=755 owner=deploy
+
+- name: Install .env
+  template: src=data_site_shared_config_env.j2 dest={{deploy_directory}}/shared/config/.env force=yes mode=755 owner=deploy
 
 - name: Install Bundler
   command: gem install bundler

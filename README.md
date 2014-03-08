@@ -15,6 +15,8 @@ few changes:
 [maruku](https://github.com/bhollis/maruku/). It is faster and has
 better support for embedded html
 - Uses [puma](https://github.com/puma/puma)
+- Contains provisioning support via [Ansible](http://www.ansible.com/home),
+[Vagrant](http://www.vagrantup.com/) and [Capistrano](http://capistranorb.com/)
 
 Made some changes to the default code base in
 order to remove empty spaces, fix test suite, upgrade used gems and
@@ -37,4 +39,12 @@ customize its configuration.
 - Try to improve code so that codeclimate becomes happier [![Code Climate](https://codeclimate.com/badge.png)](https://codeclimate.com/github/chischaschos/scanty)
 
 ## Provisioning
-Based on https://github.com/radar/ansible-rails-app
+
+- Based on https://github.com/radar/ansible-rails-app
+- Tips from http://ruby-journal.com/how-to-setup-rails-app-with-puma-and-nginx/
+- Depending on https://github.com/dotless-de/vagrant-vbguest
+
+1. Copy provisioning/vars/defaults.yml.example to provisioning/vars/defaults.yml
+2. Set you deploy public key in [deploy_public_key](provisioning/vars/defaults.yml)
+3. Run ```vagrant up```
+4. Run ```cap staging deploy```

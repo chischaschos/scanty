@@ -23,7 +23,7 @@
   command: service postgresql restart
 
 - name: create the postgresql user for application
-  postgresql_user: name=deploy
+  postgresql_user: name=deploy password=deploy
   sudo_user: postgres
 
 - name: create the postgresql database for application

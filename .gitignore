@@ -5,3 +5,4 @@ blog.db
 capybara*
 coverage/
 .env
+provisioning/vars/defaults.yml
