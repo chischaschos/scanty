@@ -2,7 +2,7 @@ require 'rubygems'
 require 'bundler'
 
 Bundler.require :default
-Dotenv.load
+Dotenv.load! ".env.#{ENV['RACK_ENV'].downcase}"
 
 require_relative 'config'
 require_relative 'helpers'
@@ -15,7 +15,6 @@ module Sinatra
 
       set :root, File.realdirpath('.')
       set :run, false
-      set :env, ENV['RACK_ENV'] || 'development'
       set :sprockets, Sinatra::Blogging::Assets.environment(settings.root)
       set :manifest, Sprockets::Manifest.new(settings.sprockets, './public/assets')
 

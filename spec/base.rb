@@ -1,9 +1,9 @@
 require 'rubygems'
 require 'bundler'
 
-$LOAD_PATH.unshift File.dirname(__FILE__) + '/../lib'
-
 ENV['RACK_ENV'] = 'test'
+
+$LOAD_PATH.unshift File.dirname(__FILE__) + '/../lib'
 
 require 'simplecov'
 SimpleCov.start
@@ -16,7 +16,6 @@ require 'capybara/rspec'
 
 Capybara.javascript_driver = :webkit
 Capybara.app = Sinatra::Blogging::App
-
 
 RSpec.configure do |config|
 
