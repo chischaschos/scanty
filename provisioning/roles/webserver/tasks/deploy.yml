@@ -76,7 +76,7 @@
   template: src=database.yml.j2 dest={{deploy_directory}}/shared/config/database.yml force=yes mode=755 owner=deploy
 
 - name: Install .env
-  template: src=data_site_shared_config_env.j2 dest={{deploy_directory}}/shared/config/.env force=yes mode=755 owner=deploy
+  template: src=data_site_shared_config_env.j2 dest={{deploy_directory}}/shared/.env force=yes mode=755 owner=deploy
 
 - name: Install Bundler
   command: gem install bundler
