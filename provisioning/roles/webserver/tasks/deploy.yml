@@ -4,7 +4,7 @@
   action: apt update_cache=yes upgrade=yes
 
 - name: install ruby dependencies
-  action: apt pkg={{item}} state=installed
+  action: apt pkg={{item}} state=present
   with_items:
     - build-essential
     - automake
@@ -29,8 +29,6 @@
   action: apt pkg={{item}} state=installed
   with_items:
     - libpq-dev
-    - nodejs
-    - imagemagick
   tags: package
 
 # Install correct version of ruby from source
