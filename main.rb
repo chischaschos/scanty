@@ -2,7 +2,7 @@ require 'rubygems'
 require 'bundler'
 
 Bundler.require :default
-Dotenv.load! ".env.#{ENV['RACK_ENV'].downcase}" unless ENV['NO_DOTENV']
+Dotenv.load ".env.#{ENV['RACK_ENV'].downcase}", '.env'
 
 require_relative 'config'
 require_relative 'helpers'
