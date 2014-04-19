@@ -14,7 +14,7 @@ describe Post do
   it "has a full url including the Blog.url_base" do
     @post.created_at = '2008-10-22'
     @post.slug = "my_post"
-    Sinatra::Blogging::App.settings.blog.stub!(:url_base).and_return('http://blog.example.com/')
+    Sinatra::Blogging::App.settings.blog.stub(:url_base).and_return('http://blog.example.com/')
     @post.full_url.should == 'http://blog.example.com/past/2008/10/22/my_post/'
   end
 

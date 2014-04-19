@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-ruby '1.9.3'
+ruby '2.1.1'
 
 gem 'capistrano', '~> 3.1.0'
 gem 'capistrano-bundler', '~> 1.1.2'
@@ -19,17 +19,15 @@ gem 'puma'
 
 group :development, :test do
   gem 'foreman'
-  gem 'pry-debugger'
+  gem 'pry-nav'
   gem 'sqlite3'
   gem 'yui-compressor'
 end
 
 group :test do
-  gem 'selenium-webdriver'
   gem 'capybara-webkit'
+  gem 'capybara'
   gem 'simplecov', require: false
-
-  # In order to save_and_open_page
   gem 'launchy'
   gem 'rspec'
 end
