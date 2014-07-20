@@ -11,4 +11,5 @@ rubyName: ruby-1.9.3-p545
 tmpRubyPath: "{{rubyTmpDir}}/{{rubyName}}"
 
 ## deploy
-deploy_public_key: /your/deploy/public_key
+#deploy_public_key: your public deployment key path to be used by capistrano
+

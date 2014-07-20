@@ -1,5 +1,5 @@
 server {
-  listen   8080;
+  listen   {{nagios_port}};
 
   access_log  /var/log/nginx/nagios.access.log;
   error_log   /var/log/nginx/nagios.error.log info;

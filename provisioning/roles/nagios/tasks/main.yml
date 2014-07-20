@@ -13,16 +13,13 @@
   template: src=etc_nginx_sites-available_nagios.conf.j2 dest=/etc/nginx/sites-available/nagios group=www-data owner=www-data force=yes
 
 - name: Add nagios user
-  htpasswd: path=/etc/nagios3/htpasswd.users name=admin password=admin state=present
+  htpasswd: path=/etc/nagios3/htpasswd.users name={{nagios_user}} password={{nagios_password}} state=present
 
 - name: Enable the nginx's nagios
   command: ln -fs /etc/nginx/sites-available/nagios /etc/nginx/sites-enabled/nagios
 
 - name: Restart nagios-nrpe-server
   service: name=nagios-nrpe-server state=restarted
-
-- name: Restart nagios3
-  service: name=nagios3 state=restarted
-
-- name: Restart nginx
-  action: service name=nginx state=restarted
+  notify:
+    - restart nagios
+    - restart nginx

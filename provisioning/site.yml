@@ -12,5 +12,14 @@
 
   handlers:
     - name: restart puma
-      action: service name=puma state=restarted
+      service: name=puma state=restarted
+
+    - name: restart nginx
+      service: name=nginx state=restarted
+
+    - name: restart nagios
+      service: name=nagios3 state=restarted
+
+    - name: restart db
+      service: name=postgresql state=restart
 
