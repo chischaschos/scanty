@@ -15,12 +15,12 @@
     .edit
       %a{:href => "#{post.url}edit"} edit
 
-- if settings.blog.disqus_shortname
+- if Scanty.settings.disqus_shortname
   #disqus_thread
   :javascript
     (function() {
       var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-      dsq.src = 'http://#{settings.blog.disqus_shortname}.disqus.com/embed.js';
+      dsq.src = 'http://#{Scanty.settings.disqus_shortname}.disqus.com/embed.js';
       (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
     })();
 

@@ -33,7 +33,7 @@ describe 'Posts management', type: :feature, js: true do
         expect(page).to have_content('A test post')
         expect(page).to have_content('Tags: tag1 tag2')
 
-        expect(Post.first.created_at.to_date).to eq DateTime.parse('2014-12-01')
+        expect(Scanty::Post.first.created_at.to_date).to eq DateTime.parse('2014-12-01')
       end
     end
 

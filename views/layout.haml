@@ -2,7 +2,7 @@
 %html
   %head
     %meta{content: "text/html; charset=utf-8", "http-equiv" => "content-type"}/
-    %title= @title || settings.blog.title
+    %title= @title || Scanty.settings.title
     %link{href: asset_path('application.css'), rel: "stylesheet"}/
     %link{href: "/feed", rel: "alternate", title: "Primary Feed", type: "application/atom+xml"}/
     %script{src: asset_path('modernizr.js')}
@@ -22,8 +22,8 @@
       .small-12.colums
         %h1
           %a{href: "/"}
-            = settings.blog.title
-            %small by #{settings.blog.author}
+            = Scanty.settings.title
+            %small by #{Scanty.settings.author}
 
       .small-12.colums
         %dl.sub-nav

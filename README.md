@@ -32,7 +32,6 @@ customize its configuration.
 
 ## Just for fun roadmap:
 
-- Be able to post on any date
 - Post review history
 - Responsive layouts
 - Full JS app consuming API

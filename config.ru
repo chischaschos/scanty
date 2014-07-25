@@ -1,11 +1,13 @@
-require './main'
+$LOAD_PATH << File.expand_path('lib')
+
+require 'scanty'
 
 unless ENV['RACK_ENV'] == 'production'
   map '/assets' do
-    run Sinatra::Blogging::Assets.environment Sinatra::Blogging::App.root
+    run Scanty::Assets.environment Scanty::WebApp.root
   end
 end
 
 map '/' do
-  run Sinatra::Blogging::App
+  run Scanty::WebApp
 end
