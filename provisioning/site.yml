@@ -6,13 +6,13 @@
     - vars/defaults.yml
 
   roles:
-    - webserver
-    - database
-    - nagios
+    - { role: webserver, tags: [webserver] }
+    - { role: database, tags: [database] }
+    - { role: nagios, tags: [nagios] }
 
   handlers:
-    - name: restart puma
-      service: name=puma state=restarted
+    - name: restart puma-manager
+      service: name=puma-manager state=restarted
 
     - name: restart nginx
       service: name=nginx state=restarted

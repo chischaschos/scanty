@@ -1,6 +1,8 @@
 %form{action: url, method: "post", name: "edit"}
   %fieldset
-    %legend New post on date #{post.created_at}
+    %legend
+      New post on date:
+      %input{name: 'date', type: 'date', value: (post.created_at || Time.now).strftime('%Y-%m-%d'), placeholder: ''}
 
     .label Title
     %input{name: "title", type: "text", value: post.title, placeholder: 'Post title...'}

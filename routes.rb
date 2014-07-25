@@ -68,7 +68,8 @@ module Sinatra
 
           post '/posts' do
             auth
-            post = Post.new title: params[:title], tags: params[:tags], body: params[:body], created_at: Time.now, slug: Post.make_slug(params[:title])
+            post = Post.new title: params[:title], tags: params[:tags], body: params[:body],
+              created_at: params[:date], slug: Post.make_slug(params[:title])
             post.save
             redirect post.url
           end

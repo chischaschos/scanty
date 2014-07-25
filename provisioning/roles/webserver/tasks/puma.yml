@@ -19,4 +19,5 @@
   tags: tmp
 
 - name: Restart puma-manager
-  action: service name=puma-manager state=restarted
+  tags: puma-manager
+  service: name=puma-manager state=restarted
