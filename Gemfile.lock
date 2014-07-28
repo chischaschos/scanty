@@ -102,6 +102,7 @@ DEPENDENCIES
   capistrano-bundler (~> 1.1.2)
   capybara
   capybara-webkit
+  coderay
   dotenv
   foreman
   haml
