@@ -29,6 +29,7 @@ end
 group :test do
   gem 'capybara-webkit'
   gem 'capybara'
+  gem 'codeclimate-test-reporter', require: nil
   gem 'simplecov', require: false
   gem 'launchy'
   gem 'rspec'

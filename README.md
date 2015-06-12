@@ -1,7 +1,8 @@
 # Scanty, a really small blog
 
 [![Build Status](https://snap-ci.com/chischaschos/scanty/branch/master/build_image)](https://snap-ci.com/chischaschos/scanty/branch/master)
-[![Code Climate](https://codeclimate.com/badge.png)](https://codeclimate.com/github/chischaschos/scanty)
+[![Code Climate](https://codeclimate.com/github/chischaschos/scanty/badges/gpa.svg)](https://codeclimate.com/github/chischaschos/scanty)
+[![Test Coverage](https://codeclimate.com/github/chischaschos/scanty/badges/coverage.svg)](https://codeclimate.com/github/chischaschos/scanty/coverage)
 
 ## Overview
 
