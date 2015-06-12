@@ -1,5 +1,5 @@
 module Scanty
-  class Routes < Sinatra::Base
+  class WebApp < Sinatra::Base
 
     helpers Scanty::Helpers
 

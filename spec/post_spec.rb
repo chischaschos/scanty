@@ -25,7 +25,7 @@ describe Scanty::Post do
 
   it "syntax highlights ruby blocks" do
 highlighted_code = <<DOC
-<div><div class=\"CodeRay\">\n  <div class=\"code\"><pre><span class=\"line-numbers\"><a href=\"#n1\" name=\"n1\">1</a></span>puts <span style=\"background-color:hsla(0,100%,50%,0.05)\"><span style=\"color:#710\">&quot;</span><span style=\"color:#D20\">hi</span><span style=\"color:#710\">&quot;</span></span>\n</pre></div>\n</div>\n</div>
+<div class=\"highlighter-coderay\"><div class=\"CodeRay\">\n  <div class=\"code\"><pre><span class=\"line-numbers\"><a href=\"#n1\" name=\"n1\">1</a></span>puts <span style=\"background-color:hsla(0,100%,50%,0.05)\"><span style=\"color:#710\">&quot;</span><span style=\"color:#D20\">hi</span><span style=\"color:#710\">&quot;</span></span>\n</pre></div>\n</div>\n</div>
 DOC
     @post.to_html("~~~ruby\nputs \"hi\"\n~~~").should eq highlighted_code
   end

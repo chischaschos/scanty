@@ -2,9 +2,9 @@ require 'ostruct'
 
 module Scanty
   autoload :Assets, 'scanty/assets'
+  autoload :Base, 'scanty/base'
   autoload :Helpers, 'scanty/helpers'
   autoload :Post, 'scanty/post'
-  autoload :Routes, 'scanty/routes'
   autoload :WebApp, 'scanty/web_app'
 
   TITLE = 'chischaschos'

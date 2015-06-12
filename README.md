@@ -1,5 +1,8 @@
 # Scanty, a really small blog
 
+[![Build Status](https://snap-ci.com/chischaschos/scanty/branch/master/build_image)](https://snap-ci.com/chischaschos/scanty/branch/master)
+[![Code Climate](https://codeclimate.com/badge.png)](https://codeclimate.com/github/chischaschos/scanty)
+
 ## Overview
 
 Original [scanty
@@ -35,7 +38,6 @@ customize its configuration.
 - Post review history
 - Responsive layouts
 - Full JS app consuming API
-- Try to improve code so that codeclimate becomes happier [![Code Climate](https://codeclimate.com/badge.png)](https://codeclimate.com/github/chischaschos/scanty)
 
 ## Provisioning
 
