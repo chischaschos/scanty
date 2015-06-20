@@ -5,25 +5,22 @@ ruby '2.2.2'
 gem 'capistrano', '~> 3.1.0'
 gem 'capistrano-bundler', '~> 1.1.2'
 
-gem 'dotenv'
-gem 'haml'
-gem 'kramdown'
-gem 'newrelic_rpm'
-gem 'pg'
-gem 'rake'
-
-
 gem "sprockets", "~> 2.10.1"
 gem 'sass', '3.2.13'
 
 gem 'sequel'
 gem 'sinatra'
 gem 'shotgun'
+gem 'dotenv'
+gem 'newrelic_rpm'
+gem 'pg'
+gem 'rake'
+gem 'puma'
 
 gem "syntax", "~> 1.0.0"
 gem 'coderay'
-
-gem 'puma'
+gem 'haml'
+gem 'kramdown'
 
 group :development, :test do
   gem 'foreman'
