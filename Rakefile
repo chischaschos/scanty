@@ -12,6 +12,6 @@ Rake::SprocketsTask.new do |t|
   environment.js_compressor = YUI::JavaScriptCompressor.new
 
   t.environment = environment
-  t.output      = "./public/assets"
-  t.assets      = %w( application.js modernizr.js application.css )
+  t.output      = "app/public/assets"
+  t.assets      = %w( application.js application.css )
 end
