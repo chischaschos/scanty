@@ -10,4 +10,3 @@ provisioning/vars/defaults.yml
 config/deploy/production.rb
 ansible-production
 provisioning/roles/webserver/templates/data_site_shared_config_env.j2
-app/public
