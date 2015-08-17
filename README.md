@@ -50,3 +50,7 @@ customize its configuration.
 2. Set you deploy public key in [deploy_public_key](provisioning/vars/defaults.yml)
 3. Run ```vagrant up```
 4. Run ```cap staging deploy```
+
+
+## TODO
+- Right now I have to restart puma-manager as root after deployment

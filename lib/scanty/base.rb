@@ -2,7 +2,7 @@ require 'rubygems'
 require 'bundler'
 
 Bundler.require :default
-Dotenv.load ".env.#{ENV['RACK_ENV'].downcase}", '.env'
+Dotenv.load ".env.#{ENV['APP_ENV'].downcase}", '.env'
 
 module Scanty
   class Base < Sinatra::Base
@@ -12,8 +12,9 @@ module Scanty
 
       set :root, File.expand_path('app')
       set :sprockets, Scanty::Assets.environment(settings.root)
-      set :manifest, Sprockets::Manifest.new(settings.sprockets, './public/assets')
+      set :manifest, Sprockets::Manifest.new(settings.sprockets, settings.root + '/public/assets')
       set :haml, format: :html5
+      set :env, ENV['APP_ENV']
 
     end
 

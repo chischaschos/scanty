@@ -2,7 +2,7 @@ $LOAD_PATH << File.expand_path('lib')
 
 require 'scanty'
 
-unless ENV['RACK_ENV'] == 'production'
+unless Scanty::WebApp.settings.env == 'production'
   map '/assets' do
     run Scanty::Assets.environment Scanty::WebApp.root
   end
