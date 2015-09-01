@@ -16,7 +16,7 @@
         var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
       })();
 
-  %body
+  %body.container
     .row
       .small-12.colums
         %h1
@@ -49,6 +49,3 @@
 
       .small-12.colums
         = yield
-
-
-    %script{src: asset_path('application.js')}

@@ -5,8 +5,9 @@ ruby '2.2.2'
 gem 'capistrano', '~> 3.1.0'
 gem 'capistrano-bundler', '~> 1.1.2'
 
-gem "sprockets", "~> 2.10.1"
-gem 'sass', '3.2.13'
+gem 'sprockets', '~> 2.10.1'
+gem 'susy'
+gem 'breakpoint'
 
 gem 'sequel'
 gem 'sinatra'
@@ -17,7 +18,7 @@ gem 'pg'
 gem 'rake'
 gem 'puma'
 
-gem "syntax", "~> 1.0.0"
+gem 'syntax', '~> 1.0.0'
 gem 'coderay'
 gem 'haml'
 gem 'kramdown'

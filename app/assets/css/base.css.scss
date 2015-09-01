@@ -1,7 +1,34 @@
+// normalize
 @import 'normalize-scss/normalize';
 
+// variables if any
+// Breakpoint variables
+$bp-tablet:      (min-width 640px) (max-width 1023px);
+$bp-desktop:     (min-width 1024px) (max-width 1280px);
+$bp-desktop-lg:  (min-width 1280px) (max-width 1440px);
+$bp-desktop-hd:  min-width 1440px;
+$bp-tablet-min:  640px;
+$bp-desktop-min: 1024px;
+$bp-retina:      min-resolution 2dppx;
+
+// mixins if any
+
+// base
 @import url(http://fonts.googleapis.com/css?family=Source+Code+Pro:200,300,700);
 
 html {
-	font-family: 'Source Code Pro' ;
+  font-family: 'Source Code Pro' ;
+}
+
+// framework
+@import 'susy';
+@import 'breakpoint';
+
+//layout
+.container {
+  @include container(96%);
+  @include breakpoint($bp-tablet) { @include container(750px); }
+  @include breakpoint($bp-desktop) { @include container(970px); }
+  @include breakpoint($bp-desktop-lg) { @include container(1220px); }
+  @include breakpoint($bp-desktop-hd) { @include container(1366px); }
 }
