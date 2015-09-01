@@ -32,6 +32,6 @@ instance {{deploy_directory}}/current
 script
 cd {{deploy_directory}}/current
 logger -t puma "Starting server: $app"
-exec bundle exec puma -C {{deploy_directory}}/current/config/puma/production.rb
+exec APP_ENV=production bundle exec puma -C {{deploy_directory}}/current/config/puma/production.rb
 stdout_redirect "/data/site/shared/log/puma.stdout.log", "/data/site/shared/log/puma.stderr.log"
 end script

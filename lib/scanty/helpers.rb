@@ -11,8 +11,6 @@ module Scanty
 
     def asset_path file
       if Scanty::WebApp.settings.env == 'production'
-        require 'pry-nav'
-        binding.pry
         "/assets/#{Scanty::WebApp.settings.manifest.assets[file]}"
       else
         "/assets/#{file}"
