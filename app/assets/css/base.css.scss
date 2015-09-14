@@ -25,10 +25,27 @@ html {
 @import 'breakpoint';
 
 //layout
-.container {
+body {
   @include container(96%);
   @include breakpoint($bp-tablet) { @include container(750px); }
   @include breakpoint($bp-desktop) { @include container(970px); }
   @include breakpoint($bp-desktop-lg) { @include container(1220px); }
   @include breakpoint($bp-desktop-hd) { @include container(1366px); }
+}
+
+// modules
+
+.post-summary,
+.post {
+  h2 {
+    margin-bottom: 0px;
+  }
+}
+
+pre .line-numbers {
+  margin-right: 20px;
+
+  &:first-child {
+    margin-left: 58px;
+  }
 }

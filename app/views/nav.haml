@@ -1,0 +1,22 @@
+%nav
+  %dl
+    %dd{class: "#{@section == :all ? 'active' : ''}"}
+      %a{href: "/"} All
+
+    %dd{class: "#{@section == :past ? 'active' : ''}"}
+      %a{href: "/past"} Archive
+
+    %dd{class: "#{@section == :about ? 'active' : ''}"}
+      %a{href: "/about"} About
+
+    - if @tag
+      %dd{class: "#{@section == :tag ? 'active' : ''}"}
+        %a{href: "#"}= @title
+
+    - if admin?
+      %dd{class: "#{@section == :edit ? 'active' : ''}"}
+        %a{href: "/posts/new"} New post
+
+    - if @section == :auth
+      %dd.active
+        %a{href: "/auth"} Log In
