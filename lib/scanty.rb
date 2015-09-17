@@ -1,5 +1,7 @@
 require 'ostruct'
 
+ENV['APP_ENV'] ||= 'development'
+
 module Scanty
   autoload :Assets, 'scanty/assets'
   autoload :Base, 'scanty/base'
