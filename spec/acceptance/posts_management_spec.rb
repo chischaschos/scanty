@@ -31,7 +31,7 @@ describe 'Posts management', type: :feature, js: true do
         fill_in 'body', with: 'A body body'
         click_button 'Save'
         expect(page).to have_content('A test post')
-        expect(page).to have_content('Tags: tag1 tag2')
+        expect(page).to have_content('tags: tag1 tag2')
 
         expect(Scanty::Post.first.created_at.to_date).to eq DateTime.parse('2014-12-01')
       end
