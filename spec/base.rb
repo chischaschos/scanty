@@ -24,14 +24,27 @@ Capybara::Webkit.configure do |config|
 end
 
 Capybara.app = Scanty::WebApp
+require_relative 'factories'
 
 RSpec.configure do |config|
   config.raise_errors_for_deprecations!
 
-  config.after  do
+  config.include FactoryGirl::Syntax::Methods
+
+  config.around(:each) do |example|
     Scanty.db.tables.each do |table|
       Scanty.db[table].delete
     end
+
+    example.run
+
+    Scanty.db.tables.each do |table|
+      Scanty.db[table].delete
+    end
+  end
+
+  config.before(:suite) do
+    FactoryGirl.lint
   end
 
 end

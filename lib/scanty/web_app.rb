@@ -11,7 +11,7 @@ module Scanty
 
     get '/past/:year/:month/:day/:slug/' do
       post = Post.filter(slug: params[:slug]).first
-      stop [ 404, "Page not found" ] unless post
+      halt [ 404, "Page not found" ] unless post
       @title = post.title
       @section = :past
       haml :post, locals: { post: post }
@@ -68,7 +68,7 @@ module Scanty
     post '/posts' do
       auth
       post = Post.new title: params[:title], tags: params[:tags], body: params[:body],
-        created_at: params[:date], slug: Post.make_slug(params[:title])
+        created_at: params[:date]
       post.save
       redirect post.url
     end
@@ -76,7 +76,7 @@ module Scanty
     get '/past/:year/:month/:day/:slug/edit' do
       auth
       post = Post.filter(slug: params[:slug]).first
-      stop [ 404, "Page not found" ] unless post
+      halt [ 404, "Page not found" ] unless post
       @section = :edit
       haml :edit, locals: { post: post, url: post.url }
     end
@@ -84,7 +84,7 @@ module Scanty
     post '/past/:year/:month/:day/:slug/' do
       auth
       post = Post.filter(slug: params[:slug]).first
-      stop [ 404, "Page not found" ] unless post
+      halt [ 404, "Page not found" ] unless post
       post.title = params[:title]
       post.tags = params[:tags]
       post.body = params[:body]

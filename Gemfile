@@ -31,10 +31,11 @@ group :development, :test do
 end
 
 group :test do
-  gem 'capybara-webkit'
   gem 'capybara'
+  gem 'capybara-webkit'
   gem 'codeclimate-test-reporter', require: nil
-  gem 'simplecov', require: false
+  gem 'factory_girl'
   gem 'launchy'
   gem 'rspec'
+  gem 'simplecov', require: false
 end

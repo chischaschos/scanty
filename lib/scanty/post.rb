@@ -10,6 +10,9 @@ end
 module Scanty
   class Post < Sequel::Model
 
+    plugin :validation_helpers
+
+
     def url
       d = created_at
       "/past/#{d.year}/#{d.month}/#{d.day}/#{slug}/"
@@ -43,12 +46,22 @@ module Scanty
       end.join(" ")
     end
 
-    def self.make_slug(title)
-      title.downcase.gsub(/ /, '_').gsub(/[^a-z0-9_]/, '').squeeze('_')
+    def make_slug
+      self.slug = title.downcase.gsub(/ /, '_').gsub(/[^a-z0-9_]/, '').squeeze('_')
     end
 
     def to_html(markdown)
       Kramdown::Document.new(markdown).to_html
+    end
+
+    def before_save
+      make_slug
+      super
+    end
+
+    def validate
+      super
+      validates_presence [:title, :created_at, :tags, :body]
     end
   end
 end

@@ -38,13 +38,25 @@ DOC
   it "can save itself (primary key is set up)" do
     @post.title = 'hello'
     @post.body = 'world'
+    @post.created_at = DateTime.now
+    @post.tags = 'tagsgs'
     @post.save
     expect(Scanty::Post.filter(:title => 'hello').first.body).to eq  'world'
   end
 
   it "generates a slug from the title (but saved to db on first pass so that url never changes)" do
-    expect(Scanty::Post.make_slug("RestClient 0.8")).to eq  'restclient_08'
-    expect(Scanty::Post.make_slug("Rushmate, rush + TextMate")).to eq  'rushmate_rush_textmate'
-    expect(Scanty::Post.make_slug("Object-Oriented File Manipulation")).to eq  'objectoriented_file_manipulation'
+    post = Scanty::Post.new
+
+    post.title = "RestClient 0.8"
+    post.make_slug
+    expect(post.slug).to eq 'restclient_08'
+
+    post.title = "Rushmate, rush + TextMate"
+    post.make_slug
+    expect(post.slug).to eq 'rushmate_rush_textmate'
+
+    post.title = "Object-Oriented File Manipulation"
+    post.make_slug
+    expect(post.slug).to eq 'objectoriented_file_manipulation'
   end
 end
