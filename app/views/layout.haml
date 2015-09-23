@@ -21,3 +21,7 @@
     = haml :nav
 
     = yield
+
+    %script{:src => "https://carnivalapp.io/sites/#{Scanty.settings.carnival_id}/init.js"}
+    :javascript
+      document.addEventListener("DOMContentLoaded", Carnival.init);

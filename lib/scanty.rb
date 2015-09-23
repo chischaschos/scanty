@@ -22,7 +22,7 @@ module Scanty
     raise "BLOG_PASSWD not set" unless ENV['BLOG_PASSWD']
     raise "COOKIE_KEY not set" unless ENV['COOKIE_KEY']
     raise "COOKIE_VALUE not set" unless ENV['COOKIE_VALUE']
-    raise "DISQUS_SHORTNAME not set" unless ENV['DISQUS_SHORTNAME']
+    raise "CARNIVAL_ID not set" unless ENV['CARNIVAL_ID']
 
 
     self.settings = OpenStruct.new title: 'chischaschos',
@@ -31,6 +31,6 @@ module Scanty
       admin_password: ENV['BLOG_PASSWD'],
       admin_cookie_key: ENV['COOKIE_KEY'],
       admin_cookie_value: ENV['COOKIE_VALUE'],
-      disqus_shortname: ENV['DISQUS_SHORTNAME']
+      carnival_id: ENV['CARNIVAL_ID']
   end
 end
