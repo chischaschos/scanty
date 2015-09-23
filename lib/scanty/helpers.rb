@@ -10,7 +10,7 @@ module Scanty
     end
 
     def asset_path file
-      if Scanty::WebApp.settings.env == 'production'
+      if Scanty::WebApp.settings.environment == 'production'
         "/assets/#{Scanty::WebApp.settings.manifest.assets[file]}"
       else
         "/assets/#{file}"

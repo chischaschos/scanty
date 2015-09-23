@@ -1,3 +1,5 @@
+ENV['APP_ENV'] = 'test'
+
 require "codeclimate-test-reporter"
 CodeClimate::TestReporter.start
 
@@ -7,7 +9,6 @@ Bundler.require :default, :test
 $LOAD_PATH << File.expand_path('lib')
 require 'scanty'
 
-ENV['RACK_ENV'] = 'test'
 
 require 'simplecov'
 SimpleCov.start
@@ -32,14 +33,14 @@ RSpec.configure do |config|
   config.include FactoryGirl::Syntax::Methods
 
   config.around(:each) do |example|
-    Scanty.db.tables.each do |table|
-      Scanty.db[table].delete
+    Scanty::Base.db.tables.each do |table|
+      Scanty::Base.db[table].delete
     end
 
     example.run
 
-    Scanty.db.tables.each do |table|
-      Scanty.db[table].delete
+    Scanty::Base.db.tables.each do |table|
+      Scanty::Base.db[table].delete
     end
   end
 

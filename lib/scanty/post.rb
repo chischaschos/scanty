@@ -1,4 +1,4 @@
-Scanty.db.create_table? :posts do
+Scanty::Base.db.create_table? :posts do
   primary_key :id
   String :title
   String :body

@@ -3,11 +3,12 @@ require 'ostruct'
 ENV['APP_ENV'] ||= 'development'
 
 module Scanty
-  autoload :Assets, 'scanty/assets'
-  autoload :Base, 'scanty/base'
+  autoload :Assets,  'scanty/assets'
+  autoload :Base,    'scanty/base'
   autoload :Helpers, 'scanty/helpers'
-  autoload :Post, 'scanty/post'
-  autoload :WebApp, 'scanty/web_app'
+  autoload :Logger,  'scanty/logger'
+  autoload :Post,    'scanty/post'
+  autoload :WebApp,  'scanty/web_app'
 
   TITLE = 'chischaschos'
   AUTHOR = 'ed'
@@ -32,9 +33,4 @@ module Scanty
       admin_cookie_value: ENV['COOKIE_VALUE'],
       disqus_shortname: ENV['DISQUS_SHORTNAME']
   end
-
-  def db
-    @db ||= Sequel.connect(ENV['DATABASE_URL'])
-  end
-
 end
