@@ -1,20 +1,27 @@
 - name: Install nginx
   apt: pkg=nginx state=latest
+  tags: nginx
 
 - name: Remove the default app
   command: rm -rf /etc/nginx/sites-enabled/default
+  tags: nginx
 
 - name: Remove the app's config, if exists
   command: rm -rf /etc/nginx/sites-enabled/default
+  tags: nginx
 
 - name: Remove the app's symlink, if exists
   command: rm -rf /etc/nginx/sites-enabled/emmanueldelgado.me
+  tags: nginx
 
 - name: Configure nginx for the app
   template: src=etc_nginx_sites-available_emmanueldelgado.me.conf.j2 dest=/etc/nginx/sites-available/emmanueldelgado.me group=www-data owner=www-data force=yes
+  tags: nginx
 
 - name: Enable the app
   command: ln -s /etc/nginx/sites-available/emmanueldelgado.me /etc/nginx/sites-enabled/emmanueldelgado.me
+  tags: nginx
 
 - name: Restart nginx
   action: service name=nginx state=restarted
+  tags: nginx

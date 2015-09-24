@@ -31,13 +31,11 @@ customize its configuration.
 - Server static content fast
 - Serve all fast
 - Serve multiple requests fast
-- Generated markup styles
 - Decoupling post model business logic
 
 ## Just for fun roadmap:
 
 - Post review history
-- Responsive layouts
 - Full JS app consuming API
 
 ## Provisioning

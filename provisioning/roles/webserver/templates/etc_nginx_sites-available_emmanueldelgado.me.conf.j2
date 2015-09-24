@@ -8,7 +8,7 @@ server {
 
   gzip_types text/plain text/css application/x-javascript text/xml application/xml application/xml+rss text/javascript application/json;
   server_name {{ webserver_name }};
-  root {{ deploy_directory }}/current/public;
+  root {{ deploy_directory }}/current/app/public;
 
   location / {
     proxy_pass http://{{ app_name }}; # match the name of upstream directive which is defined above
