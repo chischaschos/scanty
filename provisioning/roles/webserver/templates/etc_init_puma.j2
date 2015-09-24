@@ -29,9 +29,12 @@ respawn limit 3 30
 
 instance {{deploy_directory}}/current
 
+env APP_ENV=production
+export APP_ENV
+
 script
 cd {{deploy_directory}}/current
 logger -t puma "Starting server: $app"
-exec APP_ENV=production bundle exec puma -C {{deploy_directory}}/current/config/puma/production.rb
+exec bundle exec puma -C {{deploy_directory}}/current/config/puma/production.rb
 stdout_redirect "/data/site/shared/log/puma.stdout.log", "/data/site/shared/log/puma.stderr.log"
 end script
